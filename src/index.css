@@ -1,0 +1,139 @@
+body {
+    font-family: Helvetica;
+    margin: 0;
+    width:100%;
+    min-width: 800px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    font-weight: 400;
+}
+
+.main-header {
+    background-image:url('./pics/coverix.jpg');
+    background-size:cover;
+    overflow: hidden;
+    padding: 0.5rem;
+    width: 100%;
+    min-width: 500px;
+    height:400px;
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+.main-header h1 {
+    line-height: 1;
+    padding: 10px;
+    font-weight: 400;
+    text-align: left;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+}
+
+.main-header a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-content {
+    padding: 0.5rem;
+}
+.icons {
+  background-image:url('./pics/cover.jpg');
+  background-size:cover;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  text-align: center;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+}
+
+
+
+
+.search-page {
+    text-align: center;
+}
+
+.search-page__input {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.2em;
+    margin-right: 1em;
+    font-size: 20px;
+}
+.search-page__button {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding:.2em .4em;
+    color: white;
+    background-color: #e51881;
+    font-size: 20px;
+}
+
+
+
+
+
+.user-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-info__avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 1em;
+    float: left;
+}
+
+.user-info__text {
+    text-decoration: none;
+    flex: 1;
+}
+
+.user-info__title {
+    font-size: 20px;
+}
+
+.user-info__title, .user-info__bio {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-info__stats {
+    list-style: none;
+    padding: 0;
+    flex: 1;
+    display: flex;
+}
+
+.user-info__stats a {
+    color: #000;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.user-info__stat {
+    flex: 1;
+}
+
+.user-info__stat p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.GithubUser{
+  border-radius: 50%;
+  height: 128px;
+  width: 128px;
+}
