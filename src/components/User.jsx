@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import $ from 'jquery'
+import $ from 'jquery';
+import Individual from './Individual'
 
 class User extends React.Component {
     constructor() {
@@ -55,7 +56,6 @@ class User extends React.Component {
                 this.setState({
                     user: user
                 });
-            console.log(user)
         })
         // .catch((e) => console.log(e))
     }
@@ -88,17 +88,14 @@ class User extends React.Component {
             {
                 name: 'Posts',
                 value: user.data.counts.media,
-                url: `/user/${this.props.params.username}/posts`
             },
             {
                 name: 'Followers',
                 value: user.data.counts.followed_by,
-                url: `/user/${this.props.params.username}/followers`
             },
             {
                 name: 'Following',
                 value: user.data.counts.follows,
-                url: `/user/${this.props.params.username}/following`
             }
           ]
         // Look in index.css for the styles that make this look like it does
@@ -114,6 +111,9 @@ class User extends React.Component {
                     <ul className="user-info__stats">
                         {stats.map(this.renderStat)}
                     </ul>
+                </div>
+                <div>
+                  <Individual location={this.props.location} />
                 </div>
                 {this.props.children}
             </div>

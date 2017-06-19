@@ -159,3 +159,8 @@ h1,h2,h3,h4,h5,h6 {
   height: 128px;
   width: 128px;
 }
+
+.instagramimages {
+  height: 100px;
+  width: 100%;
+}
