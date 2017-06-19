@@ -42,9 +42,8 @@ class Individual extends React.Component {
         },
         })
 
-        $.ajax({
-          url: ``
-        })
+
+
         // fetch(`https://api.instagram.com/v1/users/self/?${accessTOK}`, {
         //   headers: {
         //     'Accept': 'application/json',
@@ -63,8 +62,20 @@ class Individual extends React.Component {
                         console.log('data', this.state.individual)
         })
 
+        $.ajax({
+          url: `https://api.instagram.com/v1/media/${this.state.individual.id}/comments?${accessTOK}`,
+          jsonp: "callback",
+          dataType: "jsonp",
+
+          success: function( response ) {
+          console.log( 'comment data', response );
+        },
+        })
+
         // .catch((e) => console.log(e))
     }
+
+
 
   render () {
     if (!this.state.individual) {
