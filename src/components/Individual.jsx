@@ -85,9 +85,9 @@ class Individual extends React.Component {
       <div className="Individual">
         {this.state.individual.map((individual) => {
           return (
-            <div>
+          //  <div>
               <img className="instagramimages" src={individual.images.standard_resolution.url} />
-            </div>
+          //  </div> 
           )
         })}
       </div>
