@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
 import $ from 'jquery';
-import User from './User';
 
 class Individual extends React.Component {
     constructor() {
@@ -67,8 +65,8 @@ class Individual extends React.Component {
           jsonp: "callback",
           dataType: "jsonp",
 
-          success: function( response ) {
-          console.log( 'comment data', response );
+          success: function( data ) {
+          console.log( 'comment data', data );
         },
         })
 
@@ -85,9 +83,15 @@ class Individual extends React.Component {
       <div className="Individual">
         {this.state.individual.map((individual) => {
           return (
-          //  <div>
-              <img className="instagramimages" src={individual.images.standard_resolution.url} />
-          //  </div> 
+            <div className="pics">
+              {individual.location === null
+                ? <p></p>
+                : <p>{individual.location.name}</p>}
+              <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
+                {individual.caption === null
+                  ? <p></p>
+                  : <p>{individual.caption.text}</p>}
+            </div>
           )
         })}
       </div>

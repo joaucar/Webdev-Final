@@ -104,7 +104,7 @@ class User extends React.Component {
                 <div className="user-info">
                     <Link className="user-info__text" to={`/${user.login}`}>
                         <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
-                        <h2 className="user-info__title">{user.data.username} ({user.data.full_name})</h2>
+                        <h2 className="user-info__title">{user.data.username} <br />({user.data.full_name})</h2>
                         <p className="user-info__bio">{user.bio}</p>
                     </Link>
 
