@@ -49,14 +49,14 @@ class User extends React.Component {
         //   }
         // })
         // .then(response => response.json())
-        // .then((user) => {
+        .then((user) => {
         //         // How can we use `this` inside a callback without binding it??
         //         // Make sure you understand this fundamental difference with arrow functions!!!
-        //         // this.setState({
-        //         //     user: user
-        //         // });
-        //     console.log(user)
-        // })
+                this.setState({
+                    user: user
+                });
+            console.log(user)
+        })
         // .catch((e) => console.log(e))
     }
 
@@ -84,31 +84,30 @@ class User extends React.Component {
         const user = this.state.user;
 
         // Gather up some number stats about the user, to be used in a map below
-        const stats = [
+        var stats = [
             {
-                name: 'Public Repos',
-                value: user.public_repos,
-                url: `/user/${this.props.params.username}/repos`
+                name: 'Posts',
+                value: user.data.counts.media,
+                url: `/user/${this.props.params.username}/posts`
             },
             {
                 name: 'Followers',
-                value: user.followers,
+                value: user.data.counts.followed_by,
                 url: `/user/${this.props.params.username}/followers`
             },
             {
                 name: 'Following',
-                value: user.following,
+                value: user.data.counts.follows,
                 url: `/user/${this.props.params.username}/following`
             }
-        ];
-
+          ]
         // Look in index.css for the styles that make this look like it does
         return (
             <div className="user-page">
                 <div className="user-info">
                     <Link className="user-info__text" to={`/${user.login}`}>
-                        <img className="user-info__avatar" src={user.avatar_url} alt={`${user.login} avatar`}/>
-                        <h2 className="user-info__title">{user.login} ({user.name})</h2>
+                        <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
+                        <h2 className="user-info__title">{user.data.username} ({user.data.full_name})</h2>
                         <p className="user-info__bio">{user.bio}</p>
                     </Link>
 
