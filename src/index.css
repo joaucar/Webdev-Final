@@ -13,6 +13,7 @@ h1,h2,h3,h4,h5,h6 {
 .main-header {
     background-image:url('./pics/coverix.jpg');
     background-size:cover;
+    background-position:center;
     overflow: hidden;
     padding: 0.5rem;
     width: 100%;
@@ -38,11 +39,12 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .main-content {
-    padding: 0.5rem;
+    padding: 100px 0;
 }
 .icons {
   background-image:url('./pics/cover.jpg');
   background-size:cover;
+  background-position: bottom;
   height: 250px;
   width: 250px;
   border-radius: 50%;
@@ -73,11 +75,31 @@ h1,h2,h3,h4,h5,h6 {
     padding:.2em .4em;
     color: white;
     background-color: #e51881;
-    font-size: 20px;
+    font-size: 25px;
+    height: 60px;
+    width: 125px;
+    display:flex;
+    justify-content: space-between;
+}
+#logo {
+  height:20px;
+  width:20px;
+  margin-right: 5px;
+}
+#button{
+  display:flex;
+  justify-content: center;
+
 }
 
 
-
+.bottompic{
+  background-image: url('./pics/bottom.jpg');
+  background-size:cover;
+  height:500px;
+  width:100%;
+  min-width: 500px;
+}
 
 
 .user-info {

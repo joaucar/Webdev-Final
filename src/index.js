@@ -10,7 +10,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App';
 import Search from './components/Search';
-import Year from './components/Year';
+import User from './components/User';
 
 /*
 Rendering a router will output the right component tree based on the current URL.
@@ -24,7 +24,7 @@ const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={Search}/>
-            <Route path="/:year" component={Year}>
+            <Route path="/:username" component={User}>
             </Route>
         </Route>
     </Router>

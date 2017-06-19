@@ -21,7 +21,7 @@ class App extends React.Component {
                     {this.props.children}
                 </main>
                 <footer>
-                  <div>
+                  <div className="bottompic">
 
                   </div>
                 </footer>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory as history } from 'react-router';
+import {Icon} from 'react-fa';
 
 /*
 This component displays a form where the user can enter a GitHub username
@@ -17,21 +18,20 @@ class Search extends React.Component {
     }
     _handleSubmit = (e) => {
         e.preventDefault();
-        history.push(`/${this.refs.userInput.value}`)
+        window.location.href="https://api.instagram.com/oauth/authorize/?client_id=f1b5b90485d54686b39018332f362cab&redirect_uri=http://localhost:3000/year&response_type=token"
+        // history.push(`/${this.refs.userInput.value}`)
     }
 
 
     render() {
         return (
             <div className="search-page">
-                <h2>Select a year</h2>
-                <form onSubmit={this._handleSubmit}>
-                    <select ref="userInput" className="search-page__input">
-                      <option value="all-years">All</option>
-                      <option value="iX2017"> 2017</option>
-                      <option value="iX2016"> 2016</option>
-                    </select>
-                    <button className="search-page__button">Go</button>
+                <h2>Login to Instagram</h2>
+                <form id="button" onSubmit={this._handleSubmit}>
+                    <button className="search-page__button">
+                      <div id="logo"><Icon name="instagram" /></div>
+                      Login
+                    </button>
                 </form>
             </div>
         );
