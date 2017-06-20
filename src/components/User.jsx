@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
-import Individual from './Individual'
+import Individual from './Individual';
 
 class User extends React.Component {
     constructor() {
@@ -102,7 +102,7 @@ class User extends React.Component {
         return (
             <div className="user-page">
                 <div className="user-info">
-                    <Link className="user-info__text" to={`/${user.login}`}>
+                    <Link className="user-info__text">
                         <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
                         <h2 className="user-info__title">{user.data.username} <br />{user.data.full_name}</h2>
                         <p className="user-info__bio">{user.bio}</p>
