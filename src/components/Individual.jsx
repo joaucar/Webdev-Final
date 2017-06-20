@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import {Icon} from 'react-fa';
 
 class Individual extends React.Component {
     constructor() {
@@ -86,13 +87,13 @@ class Individual extends React.Component {
             <div className="pics">
               <div className="locations">{individual.location === null
                 ? <p>  </p>
-                : <p> <i class="fa fa-map-marker" aria-hidden="true"></i> {individual.location.name}</p>}
+                : <p><Icon name="map-marker" />       {individual.location.name}</p>}
               </div>
               <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
               <div className="caption">
                 {individual.caption === null
                   ? <p>  </p>
-                  : <p><b>{individual.caption.from.username}: </b> {individual.caption.text}</p>}
+                  : <p>{individual.caption.text}</p>}
               </div>
             </div>
           )

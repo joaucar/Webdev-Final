@@ -196,6 +196,12 @@ br {
 .locations {
   height: 30px;
   margin-bottom: -25px;
+  display: flex;
+  font-size: 17px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }
 .pics {
   width: 240px;
@@ -206,4 +212,7 @@ br {
   justify-content: flex-start;
   align-content: center;
   margin-top: 30px;
+}
+.caption {
+  font-size: 17px;
 }
