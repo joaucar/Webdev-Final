@@ -11,16 +11,12 @@ This will have as an effect to navigate to a new URL, which will display the Use
 Why are we doing this instead of using a <Link>? The answer is straightforward, but make sure you understand!!!
 */
 class Search extends React.Component {
-  //  constructor(props) {
-  //      super(props);
 
-        // Why do we need to do this?? Make sure you understand!!!
     _handleSubmit = (e) => {
         e.preventDefault();
         window.location.href="https://api.instagram.com/oauth/authorize/?client_id=f1b5b90485d54686b39018332f362cab&redirect_uri=http://localhost:3000/year&response_type=token"
         // history.push(`/${this.refs.userInput.value}`)
     }
-
 
     render() {
         return (
