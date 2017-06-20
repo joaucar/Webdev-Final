@@ -106,15 +106,17 @@ h1,h2,h3,h4,h5,h6 {
 .user-info {
     display: flex;
     flex-wrap: wrap;
+    margin-top: -50px;
 }
 
 .user-info__avatar {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-right: 1em;
     float: left;
-    margin-left: 15px;
+    margin-left: 70px;
+    margin-top: -32px;
 }
 
 .user-info__text {
@@ -123,13 +125,21 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .user-info__title {
-    font-size: 20px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+}
+br {
+  spacing: 40px;
 }
 
 .user-info__title, .user-info__bio {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    align-items: center;
 }
 
 .user-info__stats {
@@ -146,6 +156,7 @@ h1,h2,h3,h4,h5,h6 {
     font-variant: small-caps;
     text-align: center;
     justify-content: center;
+    font-size: 25px;
 }
 
 .user-info__stat {
@@ -168,6 +179,12 @@ h1,h2,h3,h4,h5,h6 {
   flex-wrap: wrap;
   position:relative;
   justify-content: space-around;
+  background-color: hsl(0, 0%, 97%);
+  border-top-style: solid;
+  border-top-color: hsl(0, 0%, 82%);
+  border-top-width: 0.5px;
+  overflow-y: scroll;
+  height: 600px;
 }
 .instagramimages {
   height: 240px;
@@ -175,4 +192,18 @@ h1,h2,h3,h4,h5,h6 {
   margin-top:30px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.locations {
+  height: 30px;
+  margin-bottom: -25px;
+}
+.pics {
+  width: 240px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin-top: 30px;
 }
