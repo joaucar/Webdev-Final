@@ -110,8 +110,8 @@ h1,h2,h3,h4,h5,h6 {
 
 .user-info__avatar {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     margin-right: 1em;
     float: left;
     margin-left: 15px;
@@ -123,7 +123,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .user-info__title {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .user-info__title, .user-info__bio {
@@ -135,8 +135,10 @@ h1,h2,h3,h4,h5,h6 {
 .user-info__stats {
     list-style: none;
     padding: 0;
+    padding-right:100px;
     flex: 1;
     display: flex;
+    font-size: 25px;
 }
 
 .user-info__stats a {
@@ -168,11 +170,34 @@ h1,h2,h3,h4,h5,h6 {
   flex-wrap: wrap;
   position:relative;
   justify-content: space-around;
+  height:600px;
+  overflow-y: scroll;
+  width:90%;
+  position: relative;
+  top: 50%;
+  left:50%;
+  transform: translateX(-50%);
+}
+.location{
+  height:30px;
+  align-content:center;
+  font-size: 20px;
 }
 .instagramimages {
-  height: 240px;
-  width: 240px;
+  height: 290px;
+  width: 100%;
   margin-top:30px;
-  margin-left: 10px;
-  margin-right: 10px;
+}
+.pics {
+  width:290px;
+  height:450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content:center;
+}
+.caption{
+  text-align:center;
+  height:100px;
+  font-size: 20px;
 }

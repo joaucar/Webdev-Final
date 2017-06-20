@@ -84,13 +84,13 @@ class Individual extends React.Component {
         {this.state.individual.map((individual) => {
           return (
             <div className="pics">
-              {individual.location === null
-                ? <p></p>
-                : <p>{individual.location.name}</p>}
-              <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
-                {individual.caption === null
-                  ? <p></p>
-                  : <p>{individual.caption.text}</p>}
+              <div className="location" >
+                {individual.location === null ? <p></p> : <p>{individual.location.name}</p>}
+              </div>
+                <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
+              <div className="caption" >
+              {individual.caption === null ? <p></p> : <p>{individual.caption.text}</p>}
+              </div>
             </div>
           )
         })}
