@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import Individual from './Individual';
+// import Sticky from 'react-sticky-el';
 
 class User extends React.Component {
     constructor() {
@@ -29,6 +30,8 @@ class User extends React.Component {
     }
     componentDidMount() {
       this.fetchData()
+
+      
     }
 
     fetchData() {
@@ -105,7 +108,6 @@ class User extends React.Component {
                     <Link className="user-info__text">
                         <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
                         <h2 className="user-info__title">{user.data.username} <br />{user.data.full_name}</h2>
-                        <p className="user-info__bio">{user.bio}</p>
                     </Link>
 
                     <ul className="user-info__stats">

@@ -29,7 +29,6 @@ const routes = (
             <Route path="/:username" component={User}>
               <Route path="/individual" component={Individual} />
             </Route>
-
         </Route>
     </Router>
 );

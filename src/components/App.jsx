@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Map from './Map'
 
 /*
 This is the layout component. It's displayed by the top-level Route
@@ -24,6 +25,7 @@ class App extends React.Component {
                   <div className="bottompic">
 
                   </div>
+                  <Map />
                 </footer>
             </div>
         );

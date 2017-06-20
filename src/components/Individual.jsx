@@ -1,6 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
 import {Icon} from 'react-fa';
+import Map from "./Map"
+//import Sticky from 'react-sticky-el';
+
+const ALCHEMY_API_KEY = "1Ccn8-u7IJ1XoEdIioWyh63a5BSuCik9vDa6s-MesYjb"
 
 class Individual extends React.Component {
     constructor() {
@@ -25,6 +29,12 @@ class Individual extends React.Component {
 
     componentDidMount() {
       this.fetchData()
+
+      fetch(`https://watson-api-explorer.mybluemix.net/alchemy-api/calls/text/TextGetRankedKeywords?apikey=${ALCHEMY_API_KEY}&text=hi%20my%20name%20is%20jordan`)
+        .then((raw) => raw.json())
+        .then((res) => {
+          console.log('res', res)
+        })
     }
 
     fetchData = () => {
@@ -32,13 +42,12 @@ class Individual extends React.Component {
         const accessTOK =  this.props.location.hash.substr(1)
         $.ajax({
           url: `https://api.instagram.com/v1/users/self/media/recent/?${accessTOK}`,
-
           jsonp: "callback",
           dataType: "jsonp",
 
           success: function( response ) {
-          console.log( 'Individual data', response );
-        },
+            console.log( 'Individual data', response );
+          },
         })
 
 
@@ -53,25 +62,23 @@ class Individual extends React.Component {
         .then((data) => {
         //         // How can we use `this` inside a callback without binding it??
         //         // Make sure you understand this fundamental difference with arrow functions!!!
-                this.setState({
-                    individual: data.data
-                });
+                 this.setState({
+                     individual: data.data
+                 });
+                           console.log('data', this.state.individual)
+    })
 
-
-                        console.log('data', this.state.individual)
-        })
-
-        $.ajax({
-          url: `https://gateway.watsonplatform.net/natural-language-understanding/api`,
-          username: `9fd84426-c14f-435b-a403-84643418d83a`,
-          password: `0sohDxAOZWyK`,
-          jsonp: "callback",
-          dataType: "jsonp",
-
-          success: function( data ) {
-          console.log( 'sentiment data', data );
-        },
-        })
+        // $.ajax({
+        //   url: `https://gateway.watsonplatform.net/natural-language-understanding/api`,
+        //   username: `9fd84426-c14f-435b-a403-84643418d83a`,
+        //   password: `0sohDxAOZWyK`,
+        //   jsonp: "callback",
+        //   dataType: "jsonp",
+        //
+        //   success: function( data ) {
+        //   console.log( 'sentiment data', data );
+        // },
+        // })
 
         // .catch((e) => console.log(e))
     }
@@ -83,23 +90,26 @@ class Individual extends React.Component {
       return <div>LOADING...</div>
     }
     return (
-      <div className="Individual">
-        {this.state.individual.map((individual) => {
-          return (
-            <div className="pics">
-              <div className="locations">{individual.location === null
-                ? <p>  </p>
-                : <p><Icon name="map-marker" />       {individual.location.name}</p>}
-              </div>
-              <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
-              <div className="caption">
-                {individual.caption === null
+      <div className="year-page">
+        <div className="Individual">
+          {this.state.individual.map((individual) => {
+            return (
+              <div className="pics">
+                <div className="locations">{individual.location === null
                   ? <p>  </p>
-                  : <p>{individual.caption.text}</p>}
+                  : <p><Icon name="map-marker" />       {individual.location.name}</p>}
+                </div>
+                <img role="presentation" className="instagramimages" src={individual.images.standard_resolution.url} />
+                <div className="caption">
+                  {individual.caption === null
+                    ? <p>  </p>
+                    : <p>{individual.caption.text}</p>}
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
+        <Map />
       </div>
     )
 
