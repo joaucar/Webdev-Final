@@ -62,12 +62,14 @@ class Individual extends React.Component {
         })
 
         $.ajax({
-          url: `https://api.instagram.com/v1/media/${this.state.individual.id}/comments?${accessTOK}`,
+          url: `https://gateway.watsonplatform.net/natural-language-understanding/api`,
+          username: `9fd84426-c14f-435b-a403-84643418d83a`,
+          password: `0sohDxAOZWyK`,
           jsonp: "callback",
           dataType: "jsonp",
 
           success: function( data ) {
-          console.log( 'comment data', data );
+          console.log( 'sentiment data', data );
         },
         })
 
