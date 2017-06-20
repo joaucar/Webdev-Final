@@ -184,27 +184,12 @@ br {
   flex-wrap: wrap;
   position:relative;
   justify-content: space-around;
-<<<<<<< HEAD
   background-color: hsl(0, 0%, 97%);
   border-top-style: solid;
   border-top-color: hsl(0, 0%, 82%);
   border-top-width: 0.5px;
   overflow-y: scroll;
   height: 600px;
-=======
-  height:600px;
-  overflow-y: scroll;
-  width:90%;
-  position: relative;
-  top: 50%;
-  left:50%;
-  transform: translateX(-50%);
-}
-.location{
-  height:30px;
-  align-content:center;
-  font-size: 20px;
->>>>>>> a1d3f8cf29e73cd03d7b5c4e9552f6f0c515db2f
 }
 .instagramimages {
   height: 290px;
