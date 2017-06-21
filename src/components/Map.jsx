@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+
 
 const markers = [
         {lat: -31.563910, lng: 147.154312},
@@ -29,11 +30,11 @@ const markers = [
 const IndividualGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
-    defaultZoom={3}
-    defaultCenter={{ lat: -25.363882, lng: 131.044922 }}
+    defaultZoom={2}
+    defaultCenter={{ lat: 0, lng: 0 }}
   >
-    {markers.map((marker) => {
-      return <Marker position={{
+    {markers.map((marker, i) => {
+      return <Marker  key={i} position={{
           lat: marker.lat,
           lng: marker.lng
         }}/>

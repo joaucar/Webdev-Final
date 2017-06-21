@@ -63,7 +63,7 @@ class Individual extends React.Component {
         //         // How can we use `this` inside a callback without binding it??
         //         // Make sure you understand this fundamental difference with arrow functions!!!
                  this.setState({
-                     individual: data.data
+                     individual: data.data,
                  });
                            console.log('data', this.state.individual)
     })
@@ -92,9 +92,9 @@ class Individual extends React.Component {
     return (
       <div className="year-page">
         <div className="Individual">
-          {this.state.individual.map((individual) => {
+          {this.state.individual.map((individual, i) => {
             return (
-              <div className="pics">
+              <div className="pics" key={i}>
                 <div className="locations">{individual.location === null
                   ? <p>  </p>
                   : <p><Icon name="map-marker" />       {individual.location.name}</p>}
