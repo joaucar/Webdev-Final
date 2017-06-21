@@ -49,38 +49,14 @@ class Individual extends React.Component {
             console.log( 'Individual data', response );
           },
         })
-
-
-
-        // fetch(`https://api.instagram.com/v1/users/self/?${accessTOK}`, {
-        //   headers: {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json',
-        //   }
-        // })
-        // .then(response => response.json())
         .then((data) => {
         //         // How can we use `this` inside a callback without binding it??
         //         // Make sure you understand this fundamental difference with arrow functions!!!
                  this.setState({
                      individual: data.data,
                  });
-                           console.log('data', this.state.individual)
-    })
-
-        // $.ajax({
-        //   url: `https://gateway.watsonplatform.net/natural-language-understanding/api`,
-        //   username: `9fd84426-c14f-435b-a403-84643418d83a`,
-        //   password: `0sohDxAOZWyK`,
-        //   jsonp: "callback",
-        //   dataType: "jsonp",
-        //
-        //   success: function( data ) {
-        //   console.log( 'sentiment data', data );
-        // },
-        // })
-
-        // .catch((e) => console.log(e))
+                  console.log('data', this.state.individual)
+            })
     }
 
 
@@ -109,7 +85,7 @@ class Individual extends React.Component {
             )
           })}
         </div>
-        <Map />
+        <Map {...this.props} />
       </div>
     )
 
