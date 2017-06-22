@@ -44,7 +44,6 @@ class Individual extends React.Component {
           url: `https://api.instagram.com/v1/users/self/media/recent/?${accessTOK}`,
           jsonp: "callback",
           dataType: "jsonp",
-
           success: function( response ) {
             console.log( 'Individual data', response );
           },

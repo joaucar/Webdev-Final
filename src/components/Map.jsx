@@ -1,25 +1,23 @@
 import React from 'react'
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withGoogleMap, GoogleMap } from "react-google-maps"
 import $ from 'jquery';
+import Location from './Location'
 
 
 const IndividualGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
     defaultZoom={2}
-    defaultCenter={{ lat: 0, lng: 0 }}
+    minZoomLevel={2}
+    defaultCenter={{ lat: 0, lng: -50 }}
   >
+
     {props.markers.map((marker, i) => {
       return (
-        <div>
-      {marker.location === null
-        ? <Marker />
-        : <Marker  key={i} position={{
-            lat: marker.location.latitude,
-            lng: marker.location.longitude
-          }}/> }
+        <div className="markers">
+          {marker.location !== null ? <Location key={i} marker={marker} /> : null }
         </div>
-    )
+      )
     })}
   </GoogleMap>
   ));
@@ -29,9 +27,10 @@ class Map extends React.Component {
     super(props)
     this.state = {
       markers: [],
-      hasLoaded: false
+      hasLoaded: false,
     }
   }
+
   componentWillMount() {
         const accessTOK =  this.props.location.hash.substr(1)
         console.log('location', this.props.location)
@@ -51,20 +50,18 @@ class Map extends React.Component {
           console.log("marker data", this.state.markers)
         })
   }
-
-
   render () {
-
     return(
-      <div>
+      <div className="map">
       <IndividualGoogleMap
         markers={this.state.markers}
         containerElement={
-          <div style={{ height: `500px`, width: '100%' }} />
+          <div style={{ height: `500px`, width: '100%', maxZoomLevel: 10}} />
         }
         mapElement={
           <div style={{ height: `100%` }} />
         }>
+
       </IndividualGoogleMap>
     </div>
     )
