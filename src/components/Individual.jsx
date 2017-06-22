@@ -2,7 +2,6 @@ import React from 'react';
 import $ from 'jquery';
 import {Icon} from 'react-fa';
 import Map from './Map'
-import Emojis from './Emojis'
 //import Sticky from 'react-sticky-el';
 
 const ALCHEMY_API_KEY = "1Ccn8-u7IJ1XoEdIioWyh63a5BSuCik9vDa6s-MesYjb"
@@ -14,19 +13,6 @@ class Individual extends React.Component {
       individual: []
     };
   }
-
-  /*
-    This method will be called by React after the first render. It's a perfect place to load
-    data with AJAX. This User component gets mounted in the DOM as soon as the URL is /user/:username
-
-    When that happens, react-router will pass a `params` prop containing every parameter in the URL, just like
-    when we get URL parameters in Express with req.params. Here, it's this.props.params. Since we called our route
-    parameter `username`, it's available under this.props.params.username
-
-    We're using it to make an API call to GitHub to fetch the user data for the username in the URL. Once we receive
-    the data -- in the callback -- we call `setState` to put the user data in our state. This will trigger a re-render.
-    When `render` gets called again, `this.state.user` exists and we get the user info display instead of "LOADING..."
-    */
 
   componentDidMount() {
     this.fetchData()
@@ -48,41 +34,31 @@ class Individual extends React.Component {
   mergeWithVisionData = (images) => {
     images.forEach((image) => {
       const request = {
-         "requests":[
-           {
-             "image":{
-              "source": {
-                "imageUri": image.images.standard_resolution.url
-              }
-              },
-             "features":[
-               {
-                 "type":"FACE_DETECTION"
-               },
-               {
-                 "type": "SAFE_SEARCH_DETECTION"
-               }
-             ]
-           }
-         ]
-       };
+        "requests": [
+          {
+            "image": {
+              "source": {"imageUri": image.images.standard_resolution.url}},
+            "features": [
+              {"type": "FACE_DETECTION"}
+            ]}
+        ]};
       fetch('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBUOfIfVpDCIIYz9n7cCbMpHPD3msBZ_ig', {
-          method: 'POST',
-          headers: {
-           'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(request)
-        })
-        .then((raw) => raw.json())
-        .then((res) => {
-          console.log('res', res)
-          this.setState({
-            individual: this.state.individual.concat([{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request)
+      }).then((raw) => raw.json()).then((res) => {
+        console.log('res', res)
+        this.setState({
+          individual: this.state.individual.concat([
+            {
               ...image,
               visionData: res
-            }])
-          })
-        }).catch((e) => console.log('error', e))
+            }
+          ])
+        })
+      }).catch((e) => console.log('error', e))
     })
   }
 
@@ -111,11 +87,9 @@ class Individual extends React.Component {
             )
           })}
         </div>
-        <Map {...this.props}/>
+        <Map markers={this.state.individual} {...this.props}/>
       </div>
     )
-
   }
 }
-
 export default Individual;
