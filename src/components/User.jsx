@@ -77,7 +77,7 @@ class User extends React.Component {
                     </Link>
                       <div className="user-info__title">
                         <div className="title">
-                          <h2 classID="h2text">{user.data.username}</h2>
+                          <h7 classID="h2text">{user.data.username}</h7>
                         </div>
                         <div className="stats">
                           <ul className="user-info__stats">
