@@ -76,9 +76,16 @@ class User extends React.Component {
             <div className="user-page">
                 <div className="user-info">
                     <Link className="user-info__text">
-                        <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
-                        <h2 className="user-info__title">{user.data.username} <br />{user.data.full_name}</h2>
+                      <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
                     </Link>
+                      <div className="user-info__title">
+                        <h2>{user.data.username}</h2>
+                        <div className="bio">
+                          <p><b>{user.data.full_name}</b></p>
+                          <p>{user.data.bio}</p>
+                        </div>
+                      </div>
+
                     <ul className="user-info__stats">
                         {stats.map(this.renderStat)}
                     </ul>

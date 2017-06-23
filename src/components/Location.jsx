@@ -31,22 +31,25 @@ class Location extends React.Component {
     }
     return (
       <div>
-        <Marker className="markerimg"
-          icon={markerimg}
+        { window.google ? <Marker className="markerimg"
+          icon={{
+            url: markerimg,
+            scaledSize: new window.google.maps.Size(40, 40)
+          }}
           onClick={this.handleClick}
           position={{
             lat: props.marker.location.latitude,
             lng: props.marker.location.longitude
-        }}/>
+        }}/> : null }
       {this.state.isInfoWindowOpen ?
         <InfoWindow defaultPosition={{
             lat: props.marker.location.latitude,
             lng: props.marker.location.longitude
           }}>
           <div className="thumbnail">
-            <h4> <Icon name="map-marker" />     {props.marker.location.name}</h4>
+            <h7> <Icon name="map-marker" />     {props.marker.location.name}</h7>
             <img className="markerimage" src={props.marker.images.thumbnail.url} />
-            <p>{props.marker.caption.text}</p>
+            <h7>{props.marker.caption.text}</h7>
           </div>
         </InfoWindow>
       : null}

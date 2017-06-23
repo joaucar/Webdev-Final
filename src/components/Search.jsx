@@ -18,6 +18,7 @@ class Search extends React.Component {
         // history.push(`/${this.refs.userInput.value}`)
     }
 
+
     render() {
         return (
             <div className="search-page">

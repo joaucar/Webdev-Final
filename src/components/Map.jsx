@@ -38,7 +38,7 @@ class Map extends React.Component {
       <IndividualGoogleMap
         markers={this.props.markers}
         containerElement={
-          <div style={{ height: `500px`, width: '100%', maxZoomLevel: 10}} />
+          <div style={{ height: `500px`, width: '1000px', maxZoomLevel: 10}} />
         }
         mapElement={
           <div style={{ height: `100%` }} />
