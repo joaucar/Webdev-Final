@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Marker, InfoWindow } from "react-google-maps";
 import {Icon} from 'react-fa';
 

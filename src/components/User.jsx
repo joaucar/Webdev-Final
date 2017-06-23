@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import $ from 'jquery';
 import Individual from './Individual';
-// import Sticky from 'react-sticky-el';
 
 class User extends React.Component {
     constructor() {
@@ -12,7 +11,6 @@ class User extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
       if (prevProps.params.username !== this.props.params.username){
-        //this.fetchData()
         console.log('infinite loop')
       }
     }
@@ -50,7 +48,6 @@ class User extends React.Component {
     }
 
     render() {
-        // If the state doesn't have a user key, it means the AJAX didn't complete yet. Simply render a LOADING indicator.
         if (!this.state.user) {
             return (<div className="user-page">LOADING...</div>);
         }
@@ -79,16 +76,20 @@ class User extends React.Component {
                       <img className="user-info__avatar" src={user.data.profile_picture} alt={`${user.data.username}`}/>
                     </Link>
                       <div className="user-info__title">
-                        <h2>{user.data.username}</h2>
+                        <div className="title">
+                          <h2 classID="h2text">{user.data.username}</h2>
+                        </div>
+                        <div className="stats">
+                          <ul className="user-info__stats">
+                            {stats.map(this.renderStat)}
+                          </ul>
+                        </div>
                         <div className="bio">
                           <p><b>{user.data.full_name}</b></p>
                           <p>{user.data.bio}</p>
                         </div>
                       </div>
 
-                    <ul className="user-info__stats">
-                        {stats.map(this.renderStat)}
-                    </ul>
                 </div>
                 <div>
                   <Individual location={this.props.location} />

@@ -2,7 +2,6 @@ import React from 'react';
 import $ from 'jquery';
 import {Icon} from 'react-fa';
 import Map from './Map'
-//import Sticky from 'react-sticky-el';
 
 const ALCHEMY_API_KEY = "1Ccn8-u7IJ1XoEdIioWyh63a5BSuCik9vDa6s-MesYjb"
 
