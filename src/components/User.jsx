@@ -9,12 +9,6 @@ class User extends React.Component {
         this.state = {};
     }
 
-    componentDidUpdate(prevProps, prevState) {
-      if (prevProps.params.username !== this.props.params.username){
-        console.log('infinite loop')
-      }
-    }
-
     componentDidMount() {
       this.fetchData()
     }
@@ -26,7 +20,7 @@ class User extends React.Component {
           jsonp: "callback",
           dataType: "jsonp",
           success: function( response ) {
-          console.log( 'User data', response );
+          // console.log( 'User data', response );
         },
         })
         .then((user) => {

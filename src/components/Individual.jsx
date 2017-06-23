@@ -3,7 +3,6 @@ import $ from 'jquery';
 import {Icon} from 'react-fa';
 import Map from './Map'
 
-const ALCHEMY_API_KEY = "1Ccn8-u7IJ1XoEdIioWyh63a5BSuCik9vDa6s-MesYjb"
 
 class Individual extends React.Component {
   constructor() {
@@ -48,7 +47,6 @@ class Individual extends React.Component {
         },
         body: JSON.stringify(request)
       }).then((raw) => raw.json()).then((res) => {
-        console.log('res', res)
         this.setState({
           individual: this.state.individual.concat([
             {
@@ -62,7 +60,6 @@ class Individual extends React.Component {
   }
 
   render() {
-    console.log('this state', this.state)
     if (!this.state.individual) {
       return <div>LOADING...</div>
     }

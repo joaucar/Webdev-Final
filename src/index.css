@@ -81,6 +81,7 @@ h1,h2,h3,h4,h5,h6 {
     width: 125px;
     display:flex;
     justify-content: space-between;
+    margin-top:15px;
 }
 #logo {
   height:20px;
@@ -224,6 +225,8 @@ h1,h2,h3,h4,h5,h6 {
   display: inline-block;
   justify-content: center;
   margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 .map {
   margin-top: 175px;

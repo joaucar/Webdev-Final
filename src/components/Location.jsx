@@ -22,7 +22,6 @@ class Location extends React.Component {
 
   render () {
     const {props} = this
-    console.log('props', props)
     var markerimg;
     if(props.marker.visionData.responses[0] && props.marker.visionData.responses[0].faceAnnotations) {
       markerimg = getJoyMarker(props.marker.visionData.responses[0].faceAnnotations[0].joyLikelihood)
@@ -47,9 +46,9 @@ class Location extends React.Component {
             lng: props.marker.location.longitude
           }}>
           <div className="thumbnail">
-            <h7> <Icon name="map-marker" />     {props.marker.location.name}</h7>
-            <img className="markerimage" src={props.marker.images.thumbnail.url} />
-            <h7>{props.marker.caption.text}</h7>
+            <h8> <Icon name="map-marker" />     {props.marker.location.name}</h8>
+            <img className="markerimage" role="presentation" src={props.marker.images.thumbnail.url} />
+            <h8>{props.marker.caption.text}</h8>
           </div>
         </InfoWindow>
       : null}

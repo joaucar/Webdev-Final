@@ -1,8 +1,6 @@
 import React from 'react'
 import { withGoogleMap, GoogleMap } from "react-google-maps"
-import $ from 'jquery';
 import Location from './Location';
-import Individual from './Individual';
 
 
 const IndividualGoogleMap = withGoogleMap(props => (
